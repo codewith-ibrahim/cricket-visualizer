@@ -1,0 +1,19 @@
+.liveMatches {
+  padding: 4rem 0;
+  background: var(--slate-900);
+  color: var(--white);
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: var(--primary);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}

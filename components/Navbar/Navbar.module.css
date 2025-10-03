@@ -1,9 +1,43 @@
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 1.5rem;
-    background-color: var(--background);
-    color: var(--white); 
+  padding: 1rem 1.5rem;
+  /* background-color: var(--background);
+  color: var(--white); */
 }
 
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--background);
+  color: var(--white);
+  padding: 1.5rem 0;
+}
+
+.logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--secondary);
+}
+
+.menu {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.menu a {
+  text-decoration: none;
+  /* color: var(--black); */
+  color: black;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.menu a:hover {
+  color: var(--primary);
+}

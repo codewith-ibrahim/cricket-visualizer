@@ -197,6 +197,10 @@ html {
   .adminHeadingCont {
     @apply flex items-center justify-between mt-[2rem] mb-[3rem];
   }
+
+  /* .cardHeading {
+    @apply text-[1.5rem] font-semibold mb-4 family-[var(--font-roboto)];
+  } */
   
   /* ---------------- TERMS ---------------- */
   .termsSec .headingCont h1 {
