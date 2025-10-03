@@ -1,79 +1,43 @@
 "use client";
-import React from "react";
-import styles from "./LiveMatches.module.css";
+import { useEffect, useState } from "react";
 import MatchCard from "../MatchCard/MatchCard";
+import styles from "./LiveMatches.module.css";
 
 export default function LiveMatches() {
-  // Dummy matches data (baad mein API se aayega)
-  const matches = [
-    {
-      id: 1,
-      team1: "Pakistan",
-      team2: "India",
-      score: "120/3 (15.2)",
-      status: "Live",
-    },
-    {
-      id: 2,
-      team1: "Australia",
-      team2: "England",
-      score: "250/8 (50.0)",
-      status: "Finished",
-    },
-    {
-      id: 3,
-      team1: "South Africa",
-      team2: "New Zealand",
-      score: "Yet to start",
-      status: "Upcoming",
-    },
-    {
-      id: 4,
-      team1: "South Africa",
-      team2: "New Zealand",
-      score: "Yet to start",
-      status: "Upcoming",
-    },
-    {
-      id: 5,
-      team1: "South Africa",
-      team2: "New Zealand",
-      score: "Yet to start",
-      status: "Upcoming",
-    },
-    {
-      id: 6,
-      team1: "South Africa",
-      team2: "New Zealand",
-      score: "Yet to start",
-      status: "Upcoming",
-    },
-    {
-      id: 7,
-      team1: "South Africa",
-      team2: "New Zealand",
-      score: "Yet to start",
-      status: "Upcoming",
-    },
-    {
-      id: 8,
-      team1: "South Africa",
-      team2: "New Zealand",
-      score: "Yet to start",
-      status: "Upcoming",
-    },
-  ];
+  const [matches, setMatches] = useState([]);
+
+  useEffect(() => {
+    async function getMatches() {
+      try {
+        const res = await fetch(
+          "https://api.cricapi.com/v1/currentMatches?apikey=8c588024-54de-489d-8d17-0ba9b474f339&offset=0"
+        );
+        const data = await res.json();
+        if (data && data.data) {
+          setMatches(data.data);
+        }
+      } catch (err) {
+        console.error("Error fetching matches:", err);
+      }
+    }
+
+    getMatches();
+    const interval = setInterval(getMatches, 30000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className={styles.liveMatches}>
-      <div className="customContainer">
-        <h2 className={styles.heading}>🏏 Live & Upcoming Matches</h2>
+      <h1 className={styles.heading}>Live Matches</h1>
+      {matches.length === 0 ? (
+        <p>No live matches found</p>
+      ) : (
         <div className={styles.grid}>
           {matches.map((match) => (
             <MatchCard key={match.id} match={match} />
           ))}
         </div>
-      </div>
+      )}
     </section>
   );
 }

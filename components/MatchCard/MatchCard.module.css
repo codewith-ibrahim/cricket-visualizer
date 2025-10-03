@@ -1,52 +1,85 @@
 .card {
-  background: var(--foreground); 
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
+  background: linear-gradient(145deg, var(--foreground), #1c1c1c);
+  padding: 1.8rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  text-align: center;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
-.teams {
-  font-size: 1.2rem;
+.teamsWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   font-weight: 600;
-  letter-spacing: 2px;
-  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: white;
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 0.4rem;
+  object-fit: contain;
 }
 
 .vs {
-  color: var(--accent);
+  font-size: 1.2rem;
   font-weight: bold;
+  color: var(--accent);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+}
+
+.scoreSection {
+  margin: 1rem 0;
 }
 
 .score {
-  font-size: 1rem;
-  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.subInfo {
+  font-size: 0.85rem;
   color: var(--gray-200);
 }
 
 .status {
-  padding: 0.25rem 0.75rem;
-  border-radius: 6px;
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
   font-size: 0.9rem;
   font-weight: bold;
 }
 
 .live {
-  background: var(--primary); 
+  background: linear-gradient(90deg, #ef4444, #dc2626);
   color: white;
 }
 
 .upcoming {
-  background: #2563eb; 
+  background: linear-gradient(90deg, #2563eb, #1d4ed8);
   color: white;
 }
 
 .finished {
-  background: var(--secondary); 
+  background: linear-gradient(90deg, #6b7280, #374151);
   color: white;
 }
